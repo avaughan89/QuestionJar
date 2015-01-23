@@ -1,12 +1,14 @@
+<a href="/users/<%=@user.id%>">return home</a>
 <h1><%=@survey.title%></h1>
 <h3><%=@survey.question%></h3>
 <form id="survey_view" method="post" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
-  <input type="text" name='response' placeholder='enter yes or no'>
+  <input type="text" name='response' placeholder='enter true or false'>
   <input type="submit" value="save">
 </form>
 
 <h1>Responses</h1>
-<h3> Tally: NO: <%= @responses.where(response: false).length %> </h3>
+<h3> No: <%= @responses.where(response: false).length %> </h3>
+<h3> Yes: <%= @responses.where(response: true).length %> </h3>
 <ol>
   <% @responses.each do |response| %>
       <li>
