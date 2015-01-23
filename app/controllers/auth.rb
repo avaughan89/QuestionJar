@@ -55,6 +55,7 @@ post '/users/:id/surveys' do
   user.surveys << survey
   erb :end
 home
+end
 
 get '/users/:user_id/surveys/:survey_id' do
 
