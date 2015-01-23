@@ -1,24 +1,36 @@
 <div class='container'>
   <div class='row'>
+    <div class='eight columns'><p class='spacer'>Hover Maybe?</p></div>
+    <div class='four columns' id='maybeforms'>
 
-    <div class='twelve columns' id='maybeforms'>
       <form action='/users' method='post' id='signup'>
+        <p class='form-headers'>Need an Account?</p>
         <input type='text' name='user[username]' placeholder='USERNAME'>
         <input type='email' name='user[email]' placeholder='EMAIL'>
         <input type='password' name='user[password]' placeholder='PASSWORD'>
-        <input type='submit' name='SIGN UP' value="Register yo ass!">
+        <input type='submit' name='SIGN UP' value="Register">
       </form>
     </div>
   </div>
 <div class='row'>
     <div class='twelve columns'>
       <img class='checker' src="http://media.giphy.com/media/E87jjnSCANThe/giphy.gif" />
-      <h1>When you Life needs Answers</h1>
+      <h1 class='tagline'>When Life Needs Answers......</h1>
+      <img id ='logo-off' class='checker' src="/img/questionjar.png">
+      <h3 class='tagline'>Created by: Andrew, Quynh, Rex, and James</h3>
     </div>
 </div>
+
+<div class='row' id='middle'>
+    <div class='twelve columns' id="spacemaker">
+      <a class='action-maker'href=''>This is CRAZY but hover me maybe?</a>
+    </div>
+</div>
+
 <div class='row'>
-    <div class='two columns' id='maybeforms'>
+    <div class='four columns' id='maybeforms'>
       <form action='/sessions' method='post' id='login'>
+        <p class='form-headers'>Sign In</p>
         <input type='email' name='email' placeholder='EMAIL'>
         <input type='password' name='password' placeholder='PASSWORD'>
         <input type='submit' name='LOG IN' value='login'>
@@ -27,4 +39,7 @@
 </div>
 
 </div>
+
+<script type="text/javascript" src="/js/application.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
