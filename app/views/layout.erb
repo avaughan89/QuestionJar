@@ -22,7 +22,7 @@
 </head>
 <body>
         <% if current_user %>
-          <form method="post" action="/sessions/<%=@user.id%>">
+          <form method="post" action="/sessions/<%=current_user.id%>">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Logout">
           </form>
