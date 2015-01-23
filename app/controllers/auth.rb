@@ -49,6 +49,12 @@ end
 
 
 #------------Survey -------
+post '/users/:id/surveys' do
+  user = User.find(params[:id])
+  survey = Survey.create(params[:question])
+  user.surveys << survey
+  erb :end
+home
 
 get '/users/:user_id/surveys/:survey_id' do
 
