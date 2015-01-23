@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   include BCrypt
   has_many  :surveys
   has_many  :responses
+  has_many  :questions, through: :responses
+
+
+  # has_many  :responses
+  # has_many :questions, through: :responses
+
+
 
   # has_secure_passwordbe rak
     # Remember to create a migration!
