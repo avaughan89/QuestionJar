@@ -17,6 +17,18 @@
 <% end %>
 </div>
 
+<h1>All Surveys:</h1>
+
+<div class='surveys_all'>
+<% if current_user %>
+  <% @surveys.each do |survey| %>
+    <h3> <a href="/users/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a> </h3>
+    <p><%= survey.question %></p>
+  <% end %>
+<% end %>
+</div>
+
+
 
 
 

@@ -1,5 +1,17 @@
+<h1><%=@survey.title%></h1>
+<h3><%=@survey.question%></h3>
 <form id="survey_view" method="post" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
-  <input type="checkbox" name='response[true]' value='True'>YES
-  <input type="checkbox" name='response[false]' value="False">NO
+  <input type="text" name='response' placeholder='enter yes or no'>
   <input type="submit" value="save">
 </form>
+
+<h1>Responses</h1>
+<h3> Tally: NO: <%= @responses.where(response: false).length %> </h3>
+<ol>
+  <% @responses.each do |response| %>
+      <li>
+        <%= response.response %>
+      </li>
+  <% end %>
+</ol>
+
