@@ -55,6 +55,7 @@ end
 post '/users/:id/surveys' do
   @user = User.find(params[:id])
   survey = Survey.create(question: params[:question], user_id: @user.id, title: params[:title])
+  @surveys = Survey.all
   @user.surveys << survey
   erb :home
 end
@@ -75,6 +76,15 @@ post '/users/:user_id/surveys/:survey_id' do
   Response.create(user_id: @user.id, survey_id: @survey.id, response: params[:response])
 
   redirect "/users/#{@user.id}/surveys/#{@survey.id}"
+end
+
+#-Delete Survey -------
+
+delete '/users/:user_id/surveys/:survey_id' do
+  @user = User.find(params[:user_id])
+  Survey.find(params[:survey_id]).destroy
+
+  redirect "/users/#{@user.id}"
 end
 
 get '/users/:user_id/surveys/:survey_id/reponses' do
