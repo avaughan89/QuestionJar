@@ -13,7 +13,7 @@
 <div class='user_all'>
 <% if current_user %>
   <% @user.surveys.each do |survey| %>
-    <h3> <a href="/users/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a> </h3>
+    <h3 class='survey-links'> <a href="/users/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a> </h3>
     <p><%= survey.question %></p>
   <% end %>
 <% end %>

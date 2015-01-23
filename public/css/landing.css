@@ -16,3 +16,7 @@ html {
 h1 {
   color: white;
 }
+
+.survey-links a {
+  color: #00FF00;
+}

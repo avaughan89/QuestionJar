@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="/css/landing.css">
 
-<form id="survey_view" method="post" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
+
+<div class='row'>
+  <div class='twelve columns'>
+    <form id="survey_view" method="post" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
   <input type="checkbox" name='response[true]' value='True'>YES
   <input type="checkbox" name='response[false]' value="False">NO
   <input type="submit" value="save">
 </form>
+  </div>
+</div>
+
