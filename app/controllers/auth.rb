@@ -42,26 +42,49 @@ post '/users' do
     erb :login
   end
 end
-
+# User Home Page: (1) create new survey (2) see all your surveys (3) see all sureveys
 get '/users/:id' do
   @user = User.find(session[:user_id])
-  p @user
+  @surveys = Survey.all
   erb :home
 end
 
 
 #------------Survey -------
+  #-Create -------
 post '/users/:id/surveys' do
   @user = User.find(params[:id])
   survey = Survey.create(question: params[:question], user_id: @user.id, title: params[:title])
+  @surveys = Survey.all
   @user.surveys << survey
   erb :home
 end
-
+#-Take Survey -------
 get '/users/:user_id/surveys/:survey_id' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
+  @responses = Response.where(survey_id: @survey.id)
+  p @responses
+
   erb :survey
+end
+
+#-Respond to Survey -------
+post '/users/:user_id/surveys/:survey_id' do
+  @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
+  Response.create(user_id: @user.id, survey_id: @survey.id, response: params[:response])
+
+  redirect "/users/#{@user.id}/surveys/#{@survey.id}"
+end
+
+#-Delete Survey -------
+
+delete '/users/:user_id/surveys/:survey_id' do
+  @user = User.find(params[:user_id])
+  Survey.find(params[:survey_id]).destroy
+
+  redirect "/users/#{@user.id}"
 end
 
 get '/users/:user_id/surveys/:survey_id/reponses' do
@@ -70,6 +93,4 @@ get '/users/:user_id/surveys/:survey_id/reponses' do
   # Response.create(user_id: session[:id] survey_id: params[id], response: params[:response])
 end
 
-post '/users/:user_id/surveys/:survey_id' do
-  Response.create(user_id: params[:user_id], survey_id: params[:survey_id], response: params[:response])
-end
+

@@ -3,7 +3,7 @@ class CreateResponses < ActiveRecord::Migration
     create_table    :responses do |t|
       t.belongs_to  :user, index: true
       t.belongs_to  :survey, index: true
-      t.boolean     :response
+      t.string     :response
 
       t.timestamps
     end
