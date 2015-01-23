@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   include BCrypt
   has_many  :surveys
   has_many  :responses
-  has_many  :questions, through: :responses
+  has_many  :questions, through: :responses #get the questions that user has already answered. you can use question_id instead... user does not "have" questions, they answer but do not need to keep (db).
 
 
   # has_many  :responses
