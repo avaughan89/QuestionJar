@@ -6,15 +6,17 @@
     )
 end
 
+
+user = User.first
 5.times do |t|
-  User.surveys.create(
+  user.surveys.create(
     title: Faker::Lorem.sentence,
-    question: Faker::Hacker.noun
-    )
+    question: Faker::Lorem.sentence
+  )
 end
 
   5.times do |t|
-    User.responses.create(
+    user.responses.create(
       response: true
       )
   end

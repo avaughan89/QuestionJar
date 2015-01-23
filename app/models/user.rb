@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
     # Remember to create a migration!
 
   validates  :username, presence: true,
-                        uniqueness: true,
+                        uniqueness: true
 
-  validates  :email, presence: true
+  validates  :email, presence: true,
                       uniqueness: true
 
   def password
