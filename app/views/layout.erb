@@ -20,7 +20,7 @@
 <body>
   <div id="content">
     <header>
-      <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
+    </header>
       <div id="login-toolbar">
         <% if current_user %>
 
@@ -29,7 +29,7 @@
             <input type="submit" value="Logout">
           </form>
         <% end %>
-      </header>
+
       <%= yield %>
     </div>
 

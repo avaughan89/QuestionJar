@@ -59,12 +59,17 @@ post '/users/:id/surveys' do
 end
 
 get '/users/:user_id/surveys/:survey_id' do
-
+  @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
   erb :survey
 end
 
-get 'surveys/:id/reponses' do
+get '/users/:user_id/surveys/:survey_id/reponses' do
   # @user = User.find(session[:id])
 
   # Response.create(user_id: session[:id] survey_id: params[id], response: params[:response])
+end
+
+post '/users/:user_id/surveys/:survey_id' do
+  Response.create(user_id: params[:user_id], survey_id: params[:survey_id], response: params[:response])
 end
