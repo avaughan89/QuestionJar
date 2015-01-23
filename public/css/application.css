@@ -65,3 +65,20 @@ code {
     margin-left: -1em;
     overflow: auto;
 }
+
+
+/*MY CSS*/
+
+
+.checker {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    background-color: black;
+}
+
+#maybeforms {
+    padding: 2%;
+}

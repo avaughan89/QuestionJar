@@ -1,0 +1,22 @@
+<h1>Create New Survey</h1>
+<form id="survey_new" method="post" action="/users/<%=@user.id%>/surveys">
+  <input name="title" placeholder="enter title">
+  <input name="question" placeholder="enter question">
+  <input type="submit" value="save">
+</form>
+
+<h1>Your Surveys:</h1>
+
+
+<div class='user_all'>
+<% if current_user %>
+  <% @user.surveys.each do |survey| %>
+    <h3> <a href="/users/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a> </h3>
+    <p><%= survey.question %></p>
+  <% end %>
+<% end %>
+</div>
+
+
+
+
