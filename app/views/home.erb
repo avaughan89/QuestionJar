@@ -1,5 +1,6 @@
 <h1>Create New Survey</h1>
-<form id="survey_new" method="post" action="/surveys/new">
+<form id="survey_new" method="post" action="/users/<%=@user.id%>/surveys">
+  <input name="title" placeholder="enter title">
   <input name="question" placeholder="enter question">
   <input type="submit" value="save">
 </form>
@@ -15,5 +16,7 @@
   <% end %>
 <% end %>
 </div>
+
+
 
 

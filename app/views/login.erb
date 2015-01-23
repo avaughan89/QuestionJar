@@ -1,15 +1,15 @@
-<form action='/signup' method='post' id='signup'>
-  <input type='text' name='username' placeholder='USERNAME'>
-  <input type='email' name'email' placeholder='EMAIL'>
-  <input type='password' name='password' placeholder='PASSWORD'>
-  <input type='submit' name='SIGN UP'>
+<form action='/users' method='post' id='signup'>
+  <input type='text' name='user[username]' placeholder='USERNAME'>
+  <input type='email' name='user[email]' placeholder='EMAIL'>
+  <input type='password' name='user[password]' placeholder='PASSWORD'>
+  <input type='submit' name='SIGN UP' value="Register yo ass!">
 </form>
 
 
 
-<form action='/login' method='post' id='login'>
-  <input type='email' name'email' placeholder='EMAIL'>
+<form action='/sessions' method='post' id='login'>
+  <input type='email' name='email' placeholder='EMAIL'>
   <input type='password' name='password' placeholder='PASSWORD'>
-  <input type='submit' name='LOG IN'>
+  <input type='submit' name='LOG IN' value='login'>
 </form>
 

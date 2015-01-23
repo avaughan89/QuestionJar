@@ -1,4 +1,4 @@
-<form id="survey_new" method="post" action="/surveys/new">
+<form id="survey_new" method="post" action="/users/<%=@user.id%>/surveys">
   <input name="question" placeholder="enter question">
   <input type="submit" value="save">
 </form>

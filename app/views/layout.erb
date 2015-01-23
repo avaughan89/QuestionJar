@@ -14,8 +14,6 @@
   <!-- Load Vollkorn font -->
   <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
 
   <title></title>
 </head>
@@ -25,12 +23,18 @@
       <a href="/"><img src="/img/zenchinese.png" class="logo"></a>
       <div id="login-toolbar">
         <% if current_user %>
-        <a href="/logout">Logout</a>
-        <% else %>
-        <a href="/login">Login</a>
+
+          <form method="post" action="/sessions/<%=@user.id%>">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Logout">
+          </form>
         <% end %>
       </header>
       <%= yield %>
     </div>
+
+
+  <script src="/js/application.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </body>
   </html>

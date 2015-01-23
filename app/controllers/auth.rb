@@ -10,12 +10,12 @@ get '/sessions/new' do
   erb :login
 end
 
-# registration route
+# login route
 post '/sessions' do
-  user = User.find_by(email:params["email"])
-  if user.password = params["password"]
+  user = User.find_by(email: params[:email])
+  if user.password == params[:password]
     session[:user_id] = user.id
-    redirect '/'
+    redirect "/users/#{user.id}"
   else
     redirect '/sessions/new'
   end
@@ -34,27 +34,28 @@ get '/users/new' do
 end
 
 post '/users' do
-  user= User.new(params[:user])
+  user = User.new(params[:user])
   if user.save
     session[:id] = user.id
-    redirect '/login'
+    redirect '/'
   else
     erb :login
   end
 end
 
 get '/users/:id' do
+  @user = User.find(session[:user_id])
+  p @user
   erb :home
 end
 
 
 #------------Survey -------
 post '/users/:id/surveys' do
-  user = User.find(params[:id])
-  survey = Survey.create(params[:question])
-  user.surveys << survey
-  erb :end
-home
+  @user = User.find(params[:id])
+  survey = Survey.create(question: params[:question], user_id: @user.id, title: params[:title])
+  @user.surveys << survey
+  erb :home
 end
 
 get '/users/:user_id/surveys/:survey_id' do
