@@ -39,6 +39,8 @@ GEM
       mini_portile (~> 0.6.0)
     pg (0.18.1)
     rack (1.6.0)
+    rack-flash (0.1.2)
+      rack
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -89,7 +91,7 @@ DEPENDENCIES
   factory_girl
   faker
   pg
-  rack-test
+  rack-flash
   rake
   rspec
   shotgun

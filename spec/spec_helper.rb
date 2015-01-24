@@ -12,6 +12,7 @@ require 'shoulda-matchers'
 require 'rack/test'
 require 'capybara'
 require 'capybara/rspec'
+require 'rack-flash'
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods

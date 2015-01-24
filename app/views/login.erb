@@ -2,6 +2,15 @@
   <div class='row'>
 
     <div class='twelve columns' id='maybeforms'>
+
+<%if session[:errors]%>
+  <% session[:errors].each do |error|%>
+    <div class="errors"><%= error %></div>
+  <% end %>
+<% end %>
+
+<% session[:errors] = nil %>
+
       <form action='/users' method='post' id='signup'>
         <input type='text' name='user[username]' placeholder='USERNAME'>
         <input type='email' name='user[email]' placeholder='EMAIL'>

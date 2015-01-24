@@ -82,3 +82,8 @@ html {
 #maybeforms {
     padding: 2%;
 }
+
+.errors {
+    color: red;
+    background-color: white;
+}

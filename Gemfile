@@ -13,12 +13,11 @@ gem 'activerecord', '~>4.1'
 gem 'bcrypt'
 
 gem 'rake'
-
+gem 'rack-flash'
 gem 'shotgun'
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'rack-test'
   gem 'rspec'
   gem 'capybara'
 end

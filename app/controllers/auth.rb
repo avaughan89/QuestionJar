@@ -1,3 +1,4 @@
+
 get '/' do
   erb :login
 end
@@ -12,12 +13,14 @@ end
 
 # login route
 post '/sessions' do
+  p params
   user = User.find_by(email: params[:email])
-  if user.password == params[:password]
+  if user && user.password == params[:password]
     session[:user_id] = user.id
     redirect "/users/#{user.id}"
   else
-    redirect '/sessions/new'
+    session[:errors] = ['invalid username or password']
+    redirect '/'
   end
 end
 
@@ -39,6 +42,8 @@ post '/users' do
     session[:id] = user.id
     redirect '/'
   else
+    flash[:errors] = user.errors
+    flash[:user] = user
     erb :login
   end
 end
@@ -73,3 +78,6 @@ end
 post '/users/:user_id/surveys/:survey_id' do
   Response.create(user_id: params[:user_id], survey_id: params[:survey_id], response: params[:response])
 end
+
+
+
