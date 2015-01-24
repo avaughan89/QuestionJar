@@ -1,3 +1,4 @@
+
 <a href="/users/<%=@user.id%>">return home</a>
 <h1><%=@survey.title%></h1>
 <h3><%=@survey.question%></h3>
@@ -7,16 +8,34 @@
   <button type="submit">Delete</button>
 </form>
 
+<link rel="stylesheet" href="/css/landing.css">
+
+
+<div class='row'>
+  <div class='twelve columns'>
+<a href="/users/<%=@user.id%>">return home</a>
+<h1>Title:     <%=@survey.title%></h1>
+<h3>Question:  <%=@survey.question%></h3>
+
+
 <form id="survey_view" method="post" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
   <input type="text" name='response' placeholder='enter true or false'>
   <input type="submit" value="save">
 </form>
+
+
+<form action="/users/<%=@user.id%>/surveys/<%=@survey.id%>" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <button type="submit">Delete</button>
+</form>
+
 
 <% if @responses %>
 
   <h1>Responses</h1>
   <h3> True: <%= @responses.where(response: true).length %> </h3>
   <h3> False: <%= @responses.where(response: false).length %> </h3>
+
 
   <ol>
     <% @responses.each do |response| %>
@@ -26,5 +45,11 @@
     <% end %>
   </ol>
 <% end %>
+
+
+<% end %>
+
+</form>
+  </div>
 
 
