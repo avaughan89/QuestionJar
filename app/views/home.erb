@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/landing.css">
+<div>
 <h1>Create New Survey</h1>
 <form id="survey_new" method="post" action="/users/<%=@user.id%>/surveys">
   <input name="title" placeholder="enter title">
@@ -6,6 +8,16 @@
 </form>
 
 <h1>Your Surveys:</h1>
+</div>
+<div class='user_all'>
+  <ol>
+    <% if current_user %>
+      <% @user.surveys.each do |survey| %>
+
+        <h3>
+          <li>
+            <a href="/users/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a>
+          </li>
 
 
 <div class='user_all'>
@@ -21,13 +33,20 @@
             <input name="_method" type="hidden" value="delete" />
             <button type="submit">Delete</button>
           </form>
+
         </h3>
         <ol>
           <li>
             <p><%= survey.question %></p>
           </li>
         </ol>
+
       </li>
+      <form action="/users/<%=@user.id%>/surveys/<%=survey.id%>" method="post">
+            <input name="_method" type="hidden" value="delete" />
+            <button type="submit">Delete</button>
+          </form>
+
 
       <% end %>
     <% end %>
@@ -35,9 +54,16 @@
 
 </div>
 
+
 <h1>All Surveys:</h1>
 
 <div class='surveys_all'>
+
+
+
+<div class='surveys_all'>
+  <h1>All Surveys:</h1>
+
 <% if current_user %>
   <% @surveys.each do |survey| %>
     <h3> <a href="/users/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a> </h3>
@@ -47,6 +73,23 @@
 </div>
 
 
+<div class='row'>
+  <div class='twelve columns' id='guessin'>
+    <a id='much-wow' href=''>Let me guess....you want some more?</a>
+  </div>
+</div>
+
+<div class='brodown'>
+  <div class='brodown'>
+      <img class='brodown' src="/img/dealwithit.gif" />
+      </div>
+</div>
+
+<script type="text/javascript" src="/js/extra_effects.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 
+
+
+<div></div>
 
