@@ -2,14 +2,9 @@
 <h1><%=@survey.title%></h1>
 <h3><%=@survey.question%></h3>
 
-<form action="/users/<%=@user.id%>/surveys/<%=@survey.id%>" method="post">
-  <input name="_method" type="hidden" value="delete" />
-  <button type="submit">Delete</button>
-</form>
-
-<form id="survey_view" method="post" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
-  <input type="text" name='response' placeholder='enter true or false'>
-  <input type="submit" value="save">
+<form id="survey_view" method="post" >
+  <input type="text" name='res' placeholder='enter true or false'>
+  <input type="submit" value="save" id="save_button" action="/users/<%=@user.id%>/surveys/<%=@survey.id%>">
 </form>
 
 <% if @responses %>

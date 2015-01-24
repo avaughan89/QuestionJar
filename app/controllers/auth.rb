@@ -70,13 +70,27 @@ get '/users/:user_id/surveys/:survey_id' do
 end
 
 #-Respond to Survey -------
+# Old
+# post '/users/:user_id/surveys/:survey_id' do
+#   @user = User.find(params[:user_id])
+#   @survey = Survey.find(params[:survey_id])
+#   Response.create(user_id: @user.id, survey_id: @survey.id, response: params[:response])
+
+#   redirect "/users/#{@user.id}/surveys/#{@survey.id}"
+# end
+
 post '/users/:user_id/surveys/:survey_id' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
-  Response.create(user_id: @user.id, survey_id: @survey.id, response: params[:response])
+  p params
+  Response.create(response: params[:res])
+  content_type :json
 
-  redirect "/users/#{@user.id}/surveys/#{@survey.id}"
+  {res: params[:res]}.to_json
+  # {response: @response.response}.to_json
+  # "hello"
 end
+
 
 #-Delete Survey -------
 
