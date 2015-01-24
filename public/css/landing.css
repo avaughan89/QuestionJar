@@ -20,3 +20,21 @@ h1 {
 .survey-links a {
   color: #00FF00;
 }
+
+input {
+  background-color: white;
+}
+
+#guessin {
+  text-align: center;
+
+}
+
+#guessin a {
+  color: #FA6708;
+  font-size: 4em;
+}
+
+.brodown {
+  text-align: center;
+}
